@@ -1,0 +1,13 @@
+1.mysql 数据库连接配置
+ip:47.96.103.167
+user:geek
+pwd:1023@gGeek
+
+2.mapper映射文件报错  idea配置搜索schemas 添加url路径
+
+3.Autowired 注入类报错  idea配置中inspection去除错误提示
+
+4.properties乱码问题  idea中file encoding转码
+
+5.全局异常捕获/数据库等已配置
+

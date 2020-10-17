@@ -1,0 +1,47 @@
+#debug模式下 springboot热部署生效
+debug: true
+spring:
+  devtools:
+    restart:
+      enabled: true
+  #静态资源 修改即生效
+  freemarker:
+    cache: true
+  #数据库
+  datasource:
+    name: geek
+    url: jdbc:mysql://47.96.103.167:3306/geek?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: geek
+    password: 1023@Geek
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    estWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  #springboot 404错误统一拦截捕获
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+#springboot整合mybatis xml实现类+实体类
+mybatis:
+  mapper-locations: classpath:mapping/**/*.xml
+
+#服务端口
+server:
+  port: 8090
+
+#debug日志级别 开发调试用
+# 打印sql
+logging:
+  level:
+    com.example.geek.mapper: DEBUG
