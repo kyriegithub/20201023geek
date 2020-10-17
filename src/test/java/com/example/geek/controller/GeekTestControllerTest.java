@@ -64,7 +64,7 @@ public class GeekTestControllerTest extends GeekApplicationTests {
     public void addUser() throws Exception {
         Map<String,Object> map = new HashMap<>(4);
         map.put("name","nana");
-        map.put("phone","1888");
+        map.put("phone","18882");
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/geek/user")
                 .contentType(MediaType.APPLICATION_JSON_UTF8).content(JSON.toJSONString(map)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
