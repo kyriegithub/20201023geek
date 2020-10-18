@@ -53,7 +53,7 @@ public class GeekTestControllerTest extends GeekApplicationTests {
                         param("pageNo","2").param("pageSize","3").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
-        log.info(mvcResult.getResponse().getContentAsString());
+        log.info("getUserList:"+mvcResult.getResponse().getContentAsString());
     }
 
     /**
