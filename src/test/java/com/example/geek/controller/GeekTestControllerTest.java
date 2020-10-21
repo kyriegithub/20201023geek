@@ -50,7 +50,8 @@ public class GeekTestControllerTest extends GeekApplicationTests {
     public void getUserList() throws Exception {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/geek/user/list")
                 .param("name", "cjy").param("phone", "1").
-                        param("pageNo","2").param("pageSize","3").contentType(MediaType.APPLICATION_JSON_UTF8))
+                        param("pageNo","2").param("pageSize","3")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
         log.info("getUserList:"+mvcResult.getResponse().getContentAsString());

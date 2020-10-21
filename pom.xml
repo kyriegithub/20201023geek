@@ -10,8 +10,11 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>geek</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>HelloWorld</name>
+	<version>0.0.1</version>
+	<name>geek</name>
+	<!-- 部署到tomcat使用war打包方式 -->
+	<packaging>war</packaging>
+
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -76,6 +79,15 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>${pagehelper-spring-boot-starter.version}</version>
 		</dependency>
+
+		<!-- 排除内置tomcat容器，导出成war包可以让外部容器运行spring-boot项目-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<!-- provided表明该包只在编译和测试的时候用 -->
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

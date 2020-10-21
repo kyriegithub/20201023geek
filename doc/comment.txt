@@ -11,3 +11,15 @@ pwd:1023@gGeek
 
 5.全局异常捕获/数据库等已配置
 
+
+6.jenkins
+http://47.96.103.167:9000/
+geek 1023@Geek
+重启命令 service jenkins start
+
+7.tomcat8.5(打包出来 扔到服务器上)
+http://47.96.103.167:10000/manager/html
+geek  1023@Geek
+
+8.接口地址
+http://47.96.103.167:10000/geek-0.0.1/geek/user/list

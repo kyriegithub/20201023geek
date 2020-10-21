@@ -9,6 +9,7 @@ import com.example.geek.service.GeekService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,8 +49,12 @@ public class GeekServiceImpl implements GeekService {
     public Result getUserList(GeekUserQuery geekUserQuery) {
         Page<Object> page= PageHelper.startPage(geekUserQuery.getPageNo(),geekUserQuery.getPageSize());
         GeekUserExample example=new GeekUserExample();
-        example.or().andNameLike("%"+geekUserQuery.getName()+"%");
-        example.or().andPhoneLike("%"+geekUserQuery.getPhone()+"%");
+        if(StringUtils.isNotEmpty(geekUserQuery.getName())){
+            example.or().andNameLike("%"+geekUserQuery.getName()+"%");
+        }
+        if(StringUtils.isNotEmpty(geekUserQuery.getPhone())){
+            example.or().andPhoneLike("%"+geekUserQuery.getPhone()+"%");
+        }
         List<GeekUser> list=  geekUserMapper.selectByExample(example);
         return Result.successPage(list,page);
     }
